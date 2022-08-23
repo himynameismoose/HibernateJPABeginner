@@ -1,9 +1,9 @@
 package com.test.hib.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="User")
+@Table(name="USER")
 public class User {
     private Integer id;
     private String fullname;
@@ -13,6 +13,21 @@ public class User {
     private double salary;
     private String city;
 
+    public User() {
+    }
+
+    public User(String fullname, String email, String password, int age, double salary, String city) {
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.salary = salary;
+        this.city = city;
+    }
+
+    @Column(name = "USER_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
