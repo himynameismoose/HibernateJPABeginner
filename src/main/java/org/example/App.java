@@ -9,6 +9,7 @@ public class App {
 
         FindUserHQL user = new FindUserHQL();
 //        user.findUser();
-        user.findUserSelect();
+//        user.findUserSelect();
+        user.getRecordById();
     }
 }
