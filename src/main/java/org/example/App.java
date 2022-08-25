@@ -6,7 +6,9 @@ public class App {
 
     public static void main( String[] args ) {
 
+
         FindUserHQL user = new FindUserHQL();
-        user.findUser();
+//        user.findUser();
+        user.findUserSelect();
     }
 }
