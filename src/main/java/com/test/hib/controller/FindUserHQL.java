@@ -76,4 +76,13 @@ public class FindUserHQL {
 
         System.out.println("Maximum Salary: " + maxSalary);
     }
+
+    public void getUserCount() {
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        String hql = "SELECT COUNT(*) FROM User user";
+        List<User> results = session.createQuery(hql, User.class).getResultList();
+        System.out.println(results);
+    }
 }

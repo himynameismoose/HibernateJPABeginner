@@ -11,6 +11,7 @@ public class App {
 //        user.findUser();
 //        user.findUserSelect();
 //        user.getRecordById();
-        user.getMaxSalary();
+//        user.getMaxSalary();
+        user.getUserCount();
     }
 }
