@@ -10,6 +10,7 @@ public class App {
         FindUserHQL user = new FindUserHQL();
 //        user.findUser();
 //        user.findUserSelect();
-        user.getRecordById();
+//        user.getRecordById();
+        user.getMaxSalary();
     }
 }

@@ -65,4 +65,15 @@ public class FindUserHQL {
                             "Password: " + user.getPassword());
         }
     }
+
+    public void getMaxSalary() {
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        String hql = "SELECT MAX(user.salary) FROM User user";
+        Query<Double> query = session.createQuery(hql, Double.class);
+        double maxSalary = (Double) query.getSingleResult();
+
+        System.out.println("Maximum Salary: " + maxSalary);
+    }
 }
