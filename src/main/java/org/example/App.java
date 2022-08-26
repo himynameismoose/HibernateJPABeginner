@@ -19,6 +19,7 @@ public class App {
         EmployeeController e = new EmployeeController();
 //        e.createEmployeeTable();
 //        e.findEmployeeByName();
-        e.findEmployeeById();
+//        e.findEmployeeById();
+        e.showOfficeCodesAsDepartment();
     }
 }

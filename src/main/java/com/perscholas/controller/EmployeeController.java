@@ -58,4 +58,21 @@ public class EmployeeController {
         factory.close();
         session.close();
     }
+
+    public void showOfficeCodesAsDepartment() {
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        TypedQuery<Object[]> query = session.createNamedQuery("empDeptAlias", Object[].class);
+        List<Object[]> results = query.getResultList();
+
+        for (Object[] e : results) {
+            System.out.println("Office Code: " + e[1] + " | " +
+                               "Dept Name: " + e[3] + " | " +
+                               "Employee Name: " + e[2]);
+        }
+
+        factory.close();
+        session.close();
+    }
 }
