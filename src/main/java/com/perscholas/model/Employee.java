@@ -12,21 +12,21 @@ import java.util.Date;
 // Using @NamedQueries for multiple HQL
 @NamedQueries({
         @NamedQuery(name = "get_emp_name_by_id",
-                query = "SELECT e.name, e.salary, e.job" +
-                        "FROM Employee e" +
+                query = "SELECT e.name, e.salary, e.job " +
+                        "FROM Employee e " +
                         "WHERE id=:id"),
         @NamedQuery(name = "get_all_dept", query = "FROM Employee"),
         @NamedQuery(name = "findEmployeeByName",
                 query = "FROM Employee e WHERE e.name=:name"),
         @NamedQuery(name = "empDeptAlias",
-                query = "SELECT e, e.officeCode, e.name," +
-                        "CASE WHEN (e.officeCode = '1') THEN 'IT'" +
-                        "WHEN (e.officeCode = '6') THEN 'Admin'" +
-                        "WHEN (e.officeCode = '5') THEN 'HR'" +
-                        "WHEN (e.officeCode = '4') THEN 'Developers'" +
-                        "WHEN (e.officeCode = '3') THEN 'Accounts'" +
-                        "WHEN (e.officeCode = '2') THEN 'Finance'" +
-                        "ELSE 'General'" +
+                query = "SELECT e, e.officeCode, e.name, " +
+                        "CASE WHEN (e.officeCode = '1') THEN 'IT' " +
+                        "WHEN (e.officeCode = '6') THEN 'Admin' " +
+                        "WHEN (e.officeCode = '5') THEN 'HR' " +
+                        "WHEN (e.officeCode = '4') THEN 'Developers' " +
+                        "WHEN (e.officeCode = '3') THEN 'Accounts' " +
+                        "WHEN (e.officeCode = '2') THEN 'Finance' " +
+                        "ELSE 'General' " +
                         "END FROM Employee e"),
 })
 public class Employee {
