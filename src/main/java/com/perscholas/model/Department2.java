@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
-public class Department implements Serializable {
+@Table(name = "Department")
+public class Department2 implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,10 +15,10 @@ public class Department implements Serializable {
     private int did;
     private String dname;
 
-    public Department() {
+    public Department2() {
     }
 
-    public Department(int did, String dname) {
+    public Department2(int did, String dname) {
         this.did = did;
         this.dname = dname;
     }

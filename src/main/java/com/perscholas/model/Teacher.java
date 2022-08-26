@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "Teacher")
 public class Teacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class Teacher implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "fk_dept")
-    private Department department;
+    private Department2 department;
 
     public Teacher() {
     }
@@ -53,11 +53,11 @@ public class Teacher implements Serializable {
         this.teacherName = teacherName;
     }
 
-    public Department getDepartment() {
+    public Department2 getDepartment() {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(Department2 department) {
         this.department = department;
     }
 }
