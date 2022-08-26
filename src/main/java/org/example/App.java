@@ -17,6 +17,7 @@ public class App {
 //        user.namedQueryExample();
 
         EmployeeController e = new EmployeeController();
-        e.createEmployeeTable();
+//        e.createEmployeeTable();
+        e.findEmployeeByName();
     }
 }
