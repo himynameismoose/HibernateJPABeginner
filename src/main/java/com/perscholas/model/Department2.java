@@ -3,6 +3,7 @@ package com.perscholas.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Department")
@@ -14,6 +15,9 @@ public class Department2 implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int did;
     private String dname;
+
+    @OneToMany(targetEntity = Teacher.class, cascade = {CascadeType.ALL})
+    private List teacherList;
 
     public Department2() {
     }
@@ -37,5 +41,13 @@ public class Department2 implements Serializable {
 
     public void setDname(String dname) {
         this.dname = dname;
+    }
+
+    public List getTeacherList() {
+        return teacherList;
+    }
+
+    public void setTeacherList(List teacherList) {
+        this.teacherList = teacherList;
     }
 }

@@ -7,61 +7,58 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
 
     public static void main( String[] args ) {
-
-
-//        FindUserHQL user = new FindUserHQL();
-//        user.findUser();
-//        user.findUserSelect();
-//        user.getRecordById();
-//        user.getMaxSalary();
-//        user.getUserCount();
-//        user.namedQueryExample();
-
-//        EmployeeController e = new EmployeeController();
-//        e.createEmployeeTable();
-//        e.findEmployeeByName();
-//        e.findEmployeeById();
-//        e.showOfficeCodesAsDepartment();
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
-        Department2 department1 = new Department2();
-        department1.setDname("IT");
-
-        Department2 department2 = new Department2();
-        department2.setDname("HR");
-
         Teacher teacher1 = new Teacher();
-        teacher1.setDepartment(department1);
-        teacher1.setSalary("1000");
-        teacher1.setTeacherName("MHaseeb");
+        teacher1.setTeacherName("Haseeb");
+        teacher1.setSalary("100");
 
         Teacher teacher2 = new Teacher();
-        teacher2.setDepartment(department1);
-        teacher2.setSalary("2220");
-        teacher2.setTeacherName("Shahparan");
+        teacher2.setTeacherName("Jenny Finch");
+        teacher2.setSalary("10000");
 
         Teacher teacher3 = new Teacher();
-        teacher3.setDepartment(department1);
-        teacher3.setSalary("30000");
         teacher3.setTeacherName("James");
+        teacher3.setSalary("25000");
 
         Teacher teacher4 = new Teacher();
-        teacher4.setDepartment(department2);
-        teacher4.setSalary("40000");
-        teacher4.setTeacherName("Joseph");
+        teacher4.setTeacherName("SID ROSE");
+        teacher4.setSalary("3000");
 
-        session.persist(department1);
-        session.persist(department2);
+        Teacher teacher5 = new Teacher();
+        teacher5.setSalary("200");
+        teacher5.setTeacherName("Ali");
+
+        // Add teacher entity object to the list
+        List<Teacher> teacherList = new ArrayList();
+        teacherList.add(teacher1);
+        teacherList.add(teacher2);
+        teacherList.add(teacher3);
+        teacherList.add(teacher4);
+        teacherList.add(teacher5);
+
         session.persist(teacher1);
         session.persist(teacher2);
         session.persist(teacher3);
         session.persist(teacher4);
+        session.persist(teacher5);
+
+        // Create Department
+        Department2 department = new Department2();
+        department.setDname("Development");
+        department.setTeacherList(teacherList);
+
+        // Store Department
+        session.persist(department);
 
         t.commit();
     }
