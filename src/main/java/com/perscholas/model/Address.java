@@ -1,11 +1,11 @@
 package com.perscholas.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+@Entity
+@Table
 public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
 
