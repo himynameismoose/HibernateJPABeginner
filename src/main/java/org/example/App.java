@@ -1,64 +1,49 @@
 package org.example;
 
-import com.perscholas.model.Department2;
-import com.perscholas.model.Teacher;
+import com.perscholas.model.Address;
+import com.perscholas.model.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class App {
 
     public static void main( String[] args ) {
+        System.out.println("Maven + Hibernate + SQL One to One Mapping Annotations");
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
-        Teacher teacher1 = new Teacher();
-        teacher1.setTeacherName("Haseeb");
-        teacher1.setSalary("100");
+        Address address1 = new Address();
+        address1.setCity("NYC");
+        address1.setState("NY");
+        address1.setStreet("27th Street");
+        address1.setZipcode(11103);
 
-        Teacher teacher2 = new Teacher();
-        teacher2.setTeacherName("Jenny Finch");
-        teacher2.setSalary("10000");
+        Address address2 = new Address();
+        address2.setCity("Buffalo");
+        address2.setState("NY");
+        address2.setStreet("28th Street");
+        address2.setZipcode(15803);
 
-        Teacher teacher3 = new Teacher();
-        teacher3.setTeacherName("James");
-        teacher3.setSalary("25000");
+        Person person1 = new Person();
+        person1.setAge(25);
+        person1.setEmail("e.jon@email.com");
+        person1.setName("Elbert Adam");
+        person1.setAddress(address1);
 
-        Teacher teacher4 = new Teacher();
-        teacher4.setTeacherName("SID ROSE");
-        teacher4.setSalary("3000");
+        Person person2 = new Person();
+        person2.setAge(45);
+        person2.setEmail("ch.fink@email.com");
+        person2.setName("Christ Fink");
+        person2.setAddress(address2);
 
-        Teacher teacher5 = new Teacher();
-        teacher5.setSalary("200");
-        teacher5.setTeacherName("Ali");
-
-        // Add teacher entity object to the list
-        List<Teacher> teacherList = new ArrayList();
-        teacherList.add(teacher1);
-        teacherList.add(teacher2);
-        teacherList.add(teacher3);
-        teacherList.add(teacher4);
-        teacherList.add(teacher5);
-
-        session.persist(teacher1);
-        session.persist(teacher2);
-        session.persist(teacher3);
-        session.persist(teacher4);
-        session.persist(teacher5);
-
-        // Create Department
-        Department2 department = new Department2();
-        department.setDname("Development");
-        department.setTeacherList(teacherList);
-
-        // Store Department
-        session.persist(department);
+        session.persist(person1);
+        session.persist(person2);
+        session.persist(address1);
+        session.persist(address2);
 
         t.commit();
     }
