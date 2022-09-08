@@ -16,8 +16,7 @@ public class Cohort {
     public Cohort() {
     }
 
-    public Cohort(int id, String name, String duration) {
-        this.id = id;
+    public Cohort(String name, String duration) {
         this.name = name;
         this.duration = duration;
     }
