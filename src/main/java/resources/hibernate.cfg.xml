@@ -18,15 +18,17 @@
         <property name="hibernate.format_sql" >true </property>
 
         <!--   Mapping entity file -->
-        <mapping class="com.test.hib.model.User"/>
-        <mapping class="com.test.hib.model.Department"/>
+<!--        <mapping class="com.test.hib.model.User"/>-->
+<!--        <mapping class="com.test.hib.model.Department"/>-->
 
-        <mapping class="com.perscholas.model.Employee"/>
-        <mapping class="com.perscholas.model.Department2"/>
+<!--        <mapping class="com.perscholas.model.Employee"/>-->
+<!--        <mapping class="com.perscholas.model.Department2"/>-->
+<!--        <mapping class="com.perscholas.model.Teacher"/>-->
+
+<!--        <mapping class="com.perscholas.model.Person"/>-->
+<!--        <mapping class="com.perscholas.model.Address"/>-->
+        <mapping class="com.perscholas.model.Cohort"/>
         <mapping class="com.perscholas.model.Teacher"/>
-
-        <mapping class="com.perscholas.model.Person"/>
-        <mapping class="com.perscholas.model.Address"/>
 
     </session-factory>
 </hibernate-configuration>
